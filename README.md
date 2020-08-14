@@ -1,6 +1,4 @@
-This is the first version of using JavaScript to play Rock, Paper, Scissors against the computer.
-
-This project will be updated to include HTML & CSS at a later time.
+This is the final version of using JavaScript to play Rock, Paper, Scissors against the computer.
 
 Assignment
 Start a new git repo for your project.

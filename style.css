@@ -1,0 +1,44 @@
+body {
+    background-image: linear-gradient(to left, rgba(24, 178, 228,0.5), rgba(24, 178, 228,1));;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+ul {
+    display: table;
+    margin: 0 auto;
+}
+
+.main {
+    text-align: center;
+}
+
+.reset{
+    display: table;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 50px;
+    width: 250px;
+    background: lightblue;
+    color: black;
+    border-radius: 20px;
+    outline: none;
+    font: inherit;
+    font-size: 25px;
+}
+
+.reset:hover {
+    box-shadow: 1px 1px 1px 1px black;    
+}
+
+#rock, #paper, #scissors {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid black;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+    box-shadow: 1px 1px 1px 1px black;
+}
