@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html class=" FB_FW_ext GCPlugin2"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Rock, Paper, Scissors!</title>
+    <link rel="stylesheet" type="text/css" href="./Rock, Paper, Scissors!_files/style.css">
+    
+</head>
+<body>
+    <div class="header">
+        <h1>Let's play Rock, Paper, Scissors!</h1>
+        <h2>You know the rules...</h2>
+        <h4>
+            <ul>
+                <li>If you choose Rock, you will win against Scissors but lose against Paper.</li>
+                <li>If you choose Scissors, you will win against Paper but lose against Rock.</li>
+                <li>If you choose Paper, you will win against Rock but lose against Scissors.</li>
+            </ul>
+        </h4>
+        <h4>There will be 5 rounds, after which you will either beat, lose to, or tie the computer.</h4>
+        <h4>May the odds be ever in your favor.</h4>
+    </div>
+    
+    <div class="main">
+        <button class="rock"><img src="./Rock, Paper, Scissors!_files/rock.svg" alt="rock" height="150" width="150"></button>
+        <button class="paper"><img src="./Rock, Paper, Scissors!_files/paper.svg" alt="rock" height="150" width="150"></button>
+        <button class="scissors"><img src="./Rock, Paper, Scissors!_files/scissors.svg" alt="rock" height="150" width="150"></button>
+    </div>
+
+    <div class="score">
+        <button class="reset">NEW GAME</button>
+        <h3 id="#container"></h3>
+        <h3>Your Score:</h3>
+        <h3>Comptuer Score:</h3>
+        <h2>THE CHAMPION IS...</h2>
+    </div>
+    <script>
+        var playerScore = 0;
+        var computerScore = 0;
+        
+        function computerPlay(){
+            var set = ['rock', 'paper', 'scissors'];
+            var pick = set[Math.floor(Math.random()*set.length)];
+            return pick;
+        }
+
+        function playRockRound(playerSelection, computerSelection){
+            if(playerSelection == 'rock' && computerSelection == 'rock'){
+                return "Tie. Try again! Your score: " + playerScore + " Computer Score : " + computerScore;
+            }else if(playerSelection == 'rock' && computerSelection == 'paper'){
+                computerScore++;
+                return "You lose :( Paper covers rock. Your score: " + playerScore + " Computer Score : " + computerScore;
+            }else if(playerSelection == 'rock' && computerSelection == 'scissors'){
+                playerScore++;
+                return "You win! :) Rock beats scissors. Your score: " + playerScore + " Computer Score : " + computerScore;
+            }
+        }
+
+        function game(){
+            const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+            const computerSelection = computerPlay();
+            return playRockRound(playerSelection, computerSelection);
+        }
+
+        function result(){
+            if(playerScore > computerScore){
+                return "You are the winner! FINAL SCORES Your Score: " + playerScore + " Computer Score: " + computerScore;
+            }else if(computerScore > playerScore){
+                return "You are the loser. FINAL SCORES Computer Score: " + computerScore + " Your Score: " + playerScore;
+            }else if(computerScore == playerScore){
+                return "The game ends in a tie! FINAL SCORES Your Score: " + playerScore + " Computer Score: " + computerScore;
+            }
+        }
+
+        const rock = document.querySelector('.rock');
+        rock.addEventListener('click', playRockRound);
+
+        console.log(game());
+    </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>
