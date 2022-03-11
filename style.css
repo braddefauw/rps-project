@@ -15,6 +15,10 @@ ul {
     text-align: center;
 }
 
+.main button {
+    margin: 0px 16px 0px 16px;
+}
+
 .reset{
     display: table;
     margin: 0 auto;
